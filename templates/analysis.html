@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Analysis</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .section-title {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Analysis Results</h1>
+
+    <div class="section-title"><h2>Head</h2></div>
+    <table>
+        <thead>
+            <tr>
+                {% for col in analysis_results.head.keys %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in analysis_results.head.values %}
+                <tr>
+                    {% for col in row %}
+                        <td>{{ col }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="section-title"><h2>Summary Statistics</h2></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Statistic</th>
+                {% for col in analysis_results.summary_statistics.keys %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat, values in analysis_results.summary_statistics.items %}
+                <tr>
+                    <td>{{ stat }}</td>
+                    {% for value in values %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="section-title"><h2>Data Types</h2></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Column</th>
+                <th>Data Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, dtype in analysis_results.data_types.items %}
+                <tr>
+                    <td>{{ col }}</td>
+                    <td>{{ dtype }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="section-title"><h2>Missing Values</h2></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Column</th>
+                <th>Missing Values</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, missing in analysis_results.missing_values.items %}
+                <tr>
+                    <td>{{ col }}</td>
+                    <td>{{ missing }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="section-title"><h2>Data Info</h2></div>
+    <pre>{{ analysis_results.info }}</pre>
+
+</body>
+</html>

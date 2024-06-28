@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Upload</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Upload a file</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+<!--    <script>-->
+<!--        $(document).ready(function() {-->
+<!--            $('#id_Manufacturer').change(function() {-->
+<!--                var manufacturer = $(this).val();-->
+<!--                $.ajax({-->
+<!--                    url: "{% url 'update_models' %}",-->
+<!--                    data: {-->
+<!--                        'manufacturer': manufacturer-->
+<!--                    },-->
+<!--                    success: function(data) {-->
+<!--                        var models = data.models;-->
+<!--                        var modelSelect = $('#id_Model');-->
+<!--                        modelSelect.empty();-->
+<!--                        modelSelect.append(new Option("all","all"));-->
+<!--                        models.forEach(function(model) {-->
+<!--                            modelSelect.append(new Option(model, model));-->
+<!--                        });-->
+<!--                    }-->
+<!--                });-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+</body>
+</html>

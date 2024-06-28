@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Columns</title>
+</head>
+<body>
+    <h1>Select Columns for Plotting/Predicting</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Plot</button>
+    </form>
+</body>
+</html>

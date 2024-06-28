@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Columns</title>
+</head>
+<body>
+    <h1>Select The Column you want to make predictions on:</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" >Predict</button>
+
+    </form>
+</body>
+</html>
